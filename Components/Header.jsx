@@ -31,6 +31,7 @@ const Header = () => {
     <header className="flex p-20">
       <div className="flex flex-row font-medium text-sm z-20 justify-end items-center border-1 border-gray-500 w-full p-4 rounded-full">
         <ul className="flex space-x-8 text-base">
+          <Link href="/">
           <li
             className={`high-contrasttext-[#4B4B4B] hover:text-[#1B7E44] ${
               isActiveLink("/")
@@ -40,24 +41,23 @@ const Header = () => {
           >
             Home
           </li>
-          <Link href="/" className="">
-            <li
-              className="text-gray-400 hover:text-[#10783B]"
-              lassName={`high-contrasttext-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/")
+          </Link>
+          <Link href="/sobre" className="">
+          <li
+              className={`text-gray-400 high-contrasttext-[#4B4B4B] hover:text-[#1B7E44] ${
+                isActiveLink("/sobre")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}
             >
               Sobre nós
-            </li>
+          </li>
           </Link>
 
-          <Link href="/" className="">
+          <Link href="/contato" className="">
             <li
-              className="text-gray-400 hover:text-[#10783B]"
-              lassName={`high-contrasttext-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/")
+              className={`text-gray-400 high-contrasttext-[#4B4B4B] hover:text-[#1B7E44] ${
+                isActiveLink("/contato")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}
