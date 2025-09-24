@@ -4,6 +4,7 @@ import React from 'react'
 import Form from 'next/form'
 import { FaInstagram, FaYoutube, FaFacebook, FaPhoneAlt} from 'react-icons/fa'
 import { GoMail } from 'react-icons/go'
+
 export default function Home() {
   return (
     <div className="font-sans flex flex-col min-h-screen w-full">
