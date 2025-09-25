@@ -6,8 +6,8 @@ import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa'
 
 const page = () => {
   return (
-    <div className='flex flex-row w-full items-center'>
-      <div className='flex flex-col w-[60%] justify-center items-start'>
+    <div className='flex flex-col md:flex-row w-full items-center'>
+      <div className='flex flex-col md:w-[60%] justify-center items-start'>
         <div className='flex flex-row w-[80%] text-sm  justify-start items-center border-2 mx-auto border-gray-300 rounded-full '>
             <button className='bg-[#10783b] rounded-tl-full rounded-bl-full p-4 text-white'>
             <Link href="/">
@@ -17,7 +17,7 @@ const page = () => {
             <h1 className='ml-5 text-[#10783b] text-lg font-semibold border-b-2 border-[#10783b]'>Pontos Turísticos</h1>
         </div>
 
-        <div className='flex flex-col w-full justify-center items-start p-15'>
+        <div className='flex flex-col w-full justify-center md:items-start p-15'>
             <h1 className='text-5xl font-semibold text-[#10783b] mb-3'>Praça Capistrano <br />
             de Abreu</h1>
             <p className='text-gray-500 mb-4 text-xl'>
@@ -45,7 +45,7 @@ const page = () => {
              </div>
         </div>
       </div>
-       <div className='w-[40%] flex justify-center items-center h-[729px]'>
+       <div className='md:w-[40%] flex justify-center items-center h-[60%]  md:h-[729px] md:m-0'>
         <img src="/paisagem.jpg" alt="Praça Capistrano De Abreu"  className='w-full h-full object-cover'/>
        </div>
     </div>

@@ -111,13 +111,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Desenvolvido por</h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.instagram.com/lxtycia_?igsh=OGNxcDgyOTcwNmIz" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
+                <a href="https://www.instagram.com/_devberg?utm_source=ig_web_button_share_sheet&igsh=YWwyNWsyM296Mnhu" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
                   <BsInstagram className="mr-3" size={15} />
                   <p>Wandemberg Viana</p>
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/_devberg?utm_source=ig_web_button_share_sheet&igsh=YWwyNWsyM296Mnhu" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
+                <a href="https://www.instagram.com/lxtycia_?igsh=OGNxcDgyOTcwNmIz" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
                   <BsInstagram className="mr-3" size={15} />
                   <p>Letycia Santos</p>
                 </a>

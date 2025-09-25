@@ -37,8 +37,8 @@ export default function Destaques() {
     <div className=" w-full p-10 justify-center">
       <div className=" w-full p-10 justify-center">
             <div className='flex flex-col w-full justify-center items-center mb-5'>
-                <h1 className='text-[#10783B] font-semibold text-5xl pb-3'>Destaques Anuais</h1>
-                <div className='border-b-3 border-[#10783B] w-[1400px]'></div>
+                <h1 className='text-[#10783B] font-semibold text-4xl md:text-5xl pb-3'>Destaques Anuais</h1>
+                <div className='border-b-3 border-[#10783B] w-[100%] md:w-[1400px]'></div>
             </div>
         <div className="flex flex-wrap gap-6 justify-center">
           {photos.map((p) => (
