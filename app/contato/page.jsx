@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="font-sans flex flex-col min-h-screen w-full">
       <Header />
-       <div className='flex flex-row w-full'>
-          <div  className='flex flex-col w-[50%] pt-[220px]'>
-             <h1 className='text-[#10783B] font-semibold text-6xl text-center pb-4'>Fale Conosco</h1>
+       <div className='flex flex-col md:flex-row w-full'>
+          <div  className='flex flex-col md:w-[50%] md:pt-[220px]'>
+             <h1 className='text-[#10783B] font-semibold text-5xl md:text-6xl text-center pb-4'>Fale Conosco</h1>
              <p className='text-gray-400 text-center text-lg justify-between'>
                 Estamos aqui para ouvir você! Seja para tirar <br />
                 dúvidas, enviar sugestões ou compartilhar suas<br />
@@ -31,13 +31,13 @@ export default function Home() {
                 
               </div>
           </div>
-          <div className='w-[50%] m-10'>
-            <Form action="" className='w-[600] flex flex-col py-[45px] px-[65] border-2 border-gray-300 rounded-4xl shadow-lg'>
-              <h2 className=' justify-end text-[#10783b] text-4xl font-bold'>Entre em contato</h2>
-              <p className='text-gray-400 mb-4 text-lg'>Compartilhe sua ideia ou pergunta conosco</p>
-              <div className='flex space-x-4'>
-              <input type='text' placeholder='Nome' className='border-2 border-gray-300 rounded-full py-2 px-5 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
-              <input type='text' placeholder='Sobrenome' className='border-2 border-gray-300 rounded-full py-2 px-5 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
+          <div className='md:w-[50%] m-10'>
+            <Form action="" className=' md:w-[600px] mx-auto flex flex-col py-[45px] px-[65] border-2 border-gray-300 rounded-4xl shadow-lg'>
+              <h2 className='text-center md:text-start text-[#10783b] text-4xl font-bold'>Entre em contato</h2>
+              <p className='text-center  md:text-start text-gray-400 mb-4 text-lg'>Compartilhe sua ideia ou pergunta conosco</p>
+              <div className='flex flex-col md:flex-row md:space-x-4 w-full'>
+              <input type='text' placeholder='Nome' className='border-2 border-gray-300 rounded-full py-2 md:w-[50%] px-2 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
+              <input type='text' placeholder='Sobrenome' className='border-2 border-gray-300 rounded-full py-2 md:w-[50%] px-2 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
               </div>
               <div className="flex items-center border-2 border-gray-300 rounded-full px-4 mb-4">
                 <GoMail className="text-gray-700 mr-3" />
