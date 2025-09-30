@@ -11,7 +11,9 @@ const Imagens = () => {
 
       <div className="flex flex-wrap justify-center items-center py-10">
         <div className="flex justify-center px-10 py-5">
-          <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
+          <div className="transition duration-150 ease-in-out hover:scale-105">
+
+            <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm transition delay-150 duration-300 ease-in-out">
             <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
@@ -35,10 +37,13 @@ const Imagens = () => {
               </a>
             </div>
           </div>
+            </div>
         </div>
+        
+          
 
         <div className="flex justify-center px-10">
-          <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
+          <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm transition delay-150 duration-300 ease-in-ou">
             <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
