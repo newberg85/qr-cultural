@@ -41,9 +41,10 @@ const Imagens = () => {
         </div>
         
           
-
+     <div className="transition duration-150 ease-in-out hover:scale-105">
         <div className="flex justify-center px-10">
           <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm transition delay-150 duration-300 ease-in-ou">
+       
             <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
@@ -68,10 +69,14 @@ const Imagens = () => {
             </div>
           </div>
         </div>
-
+        </div>
+      
+     <div className="transition duration-150 ease-in-out hover:scale-105">
         <div className="flex justify-center px-10">
           <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
-            <Image
+         
+         
+           <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
               width={400}
@@ -95,10 +100,13 @@ const Imagens = () => {
             </div>
           </div>
         </div>
+      </div>
 
+           <div className="transition duration-150 ease-in-out hover:scale-105">
         <div className="flex justify-center px-10">
           <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
-            <Image
+             
+              <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
               width={400}
@@ -122,9 +130,12 @@ const Imagens = () => {
             </div>
           </div>
         </div>
+        </div>
 
+         <div className="transition duration-150 ease-in-out hover:scale-105">
         <div className="flex justify-center px-10">
           <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
+              
             <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
@@ -149,9 +160,12 @@ const Imagens = () => {
             </div>
           </div>
         </div>
+        </div>
 
+;        <div className="transition duration-150 ease-in-out hover:scale-105">  
         <div className="flex justify-center px-10">
           <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm">
+              
             <Image
               src="/paisagem.jpg"
               alt="Praça Capistrano De Abreu"
@@ -174,8 +188,9 @@ const Imagens = () => {
                 Veja Mais
               </a>
             </div>
-          </div>
         </div>
+      </div>
+      </div>
       </div>
       <div className="flex items-center justify-center pb-5">
         <a
