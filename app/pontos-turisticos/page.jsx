@@ -1,28 +1,29 @@
 'use client'
 
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/app/services/firebaseConnection';
+import { useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { doc, getDoc } from 'firebase/firestore';
 
 const Page = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
   const [ponto, setPonto] = useState(null);
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "pontos-turisticos"));
-      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      console.log("Dados buscados do Firestore:", data);
-      setPonto(data[0]);
-    } catch (error) {
-      console.error("Erro ao buscar dados do Firestore:", error);
-    }
-  };
-
-  fetchData();
-}, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const ref = doc(db, "pontos-turisticos", id);
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) {
+        setPonto({ id: snapshot.id, ...snapshot.data() });
+      }
+    };
+    fetchData();
+  }, [id]);
 
   if (!ponto) return <div>Carregando...</div>;
 
@@ -45,7 +46,7 @@ useEffect(() => {
             </p>
 
             <p className='text-gray-500 mb-4 text-xl'>
-                {ponto.descricao}
+                {ponto.descricao2}
             </p>
 
             <div className='flex flex-row justify-between w-full mt-4 mb-20'>
