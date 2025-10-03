@@ -38,7 +38,7 @@ export default function Destaques() {
       <div className=" w-full p-10 justify-center">
             <div className='flex flex-col w-full justify-center items-center mb-5'>
                 <h1 className='text-[#10783B] font-semibold text-4xl md:text-5xl pb-3'>Destaques Anuais</h1>
-                <div className='border-b-3 border-[#10783B] w-[100%] md:w-[1400px]'></div>
+                <div className='border-b-3 border-[#10783B] w-[100%] md:w-[90%]'></div>
             </div>
         <div className="flex flex-wrap gap-6 justify-center">
           {photos.map((p) => (
@@ -47,7 +47,7 @@ export default function Destaques() {
               href={p.links.html}
               target="_blank"
               rel="noopener noreferrer"
-              className="block overflow-hidden hover:shadow-lg transition-shadow duration-300 w-[430px] h-[300px]"
+              className="block overflow-hidden hover:shadow-lg transition-shadow duration-300 w-[370px] h-[300px]"
             >
               <img
                 src={p.urls.small}
