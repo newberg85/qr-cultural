@@ -11,10 +11,32 @@ import { db } from "@/app/services/firebaseConnection";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "@/app/services/firebaseConnection";
-
+import {  ToastContainer ,  toast  }  from  'react-toastify' ;  
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
-  
+
+  const myPromisse = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const sucess = true;
+      if (sucess) {
+        resolve("Ponto turístico cadastrado com sucesso!");
+      } else {
+        reject("Erro ao cadastrar ponto turístico!");
+      }
+    }, 3000);
+  });
+
+  const notify = () => toast.promise(myPromisse, {
+    pending: 'Cadastrando ponto turístico...',
+    success: 'Ponto turístico cadastrado com sucesso!',
+    error: 'Erro ao cadastrar ponto turístico!'
+  });
+
+  const notifyError = () => toast.error("Erro ao cadastrar ponto turístico! Preencha todos os campos!", {
+    autoClose: 3000,
+  });
+
   const [nome, setNome] = React.useState('');
   const [categoria, setCategoria] = React.useState('');
   const [cidade, setCidade] = React.useState('');
@@ -39,6 +61,12 @@ export default function Home() {
         imageUrl = await getDownloadURL(storageRef);
         console.log("imagem enviada");
       }
+
+      if (!nome || !categoria || !cidade || !bairro || !rua || !cep || !descricao) {
+        notifyError();
+        setLoading(false);
+        return;
+      }
    
       await addDoc(collection(db, "pontos-turisticos"), {
         nome,
@@ -51,6 +79,7 @@ export default function Home() {
         imagem: imageUrl,
       });
 
+      notify();
    
       setNome("");
       setCategoria("");
@@ -63,7 +92,7 @@ export default function Home() {
 
     } catch (error) {
       console.error("Erro ao cadastrar ponto:", error);
-      alert("Erro ao cadastrar ponto.");
+      notify();
     } finally {
       setLoading(false);
     }
@@ -175,10 +204,12 @@ export default function Home() {
             <button
               type="submit"
               disabled={loading}
+
               className="bg-[#10783b] w-[220px] text-white font-bold py-2 px-15 rounded-full hover:bg-[#0a622e] disabled:opacity-60"
             >
               {loading ? "Cadastrando..." : "Cadastrar"}
             </button>
+            <ToastContainer limit={1} position="top-center"/>
           </div>
         </Form>
          
