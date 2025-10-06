@@ -4,10 +4,12 @@ import Image from "next/image";
 import { db } from "@/app/services/firebaseConnection";
 import { collection, getDocs, limit, query } from "firebase/firestore";
 
-const Imagens = () => {
+const Imagens = ({ searchTerm, searchTriggered }) => {
   const [pontos, setPontos] = useState([]);
   const [perPage, setPerPage] = useState(4); 
 
+  const mostrarButton = pontos.length >= perPage;
+  
   useEffect(() => {
     const fetchPontos = async () => {
       try {
@@ -28,6 +30,20 @@ const Imagens = () => {
     fetchPontos();
   }, [perPage]);
 
+  const pontosFiltrados =
+    searchTriggered && searchTerm.trim() !== ""
+      ? pontos.filter((ponto) => {
+          const termo = searchTerm.toLowerCase();
+
+          const nome = ponto.nome ? ponto.nome.toLowerCase() : "";
+          const categoria = ponto.categoria ? ponto.categoria.toLowerCase() : "";
+         
+
+          return nome.includes(termo) || categoria.includes(termo);
+        })
+      : pontos;
+
+
   return (
     <div className="font-[Montserrat] bg-white">
       <div className="flex items-center justify-center py-6">
@@ -37,7 +53,8 @@ const Imagens = () => {
       </div>
 
       <div className="flex flex-wrap justify-center items-center py-10">
-        {pontos.map((ponto) => (
+      {pontosFiltrados.length > 0 ? (
+        pontosFiltrados.map((ponto) => (
           <div
             key={ponto.id}
             className="flex justify-center px-10 py-5"
@@ -66,18 +83,19 @@ const Imagens = () => {
               </div>
             </div>
           </div>
-        ))}
+        )) ) : (<p className="text-gray-500">Nenhum ponto turístico encontrado.</p>
+        )}
 
       </div>
 
-      <div className="flex items-center justify-center pb-5">
+      { searchTriggered === false  && pontos.length > 0 && mostrarButton && (<div className="flex items-center justify-center pb-5">
         <button
           onClick={() => setPerPage(perPage + 3)} // carrega mais 3
           className="mt-4 px-4 py-2 bg-[#1B7E44] text-white text-sm font-semibold rounded-sm hover:bg-green-700 transition-colors inline-block"
         >
           Carregar mais
         </button>
-      </div>
+      </div>)}
     </div>
   );
 };
