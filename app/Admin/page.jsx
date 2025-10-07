@@ -99,6 +99,7 @@ export default function Home() {
   };
 
 
+
   return (
 
 
@@ -184,21 +185,26 @@ export default function Home() {
           />
           
          <div className="upload-container mb-4 border-solid border-2 rounded-3xl border-gray-300 w-[500px] h-[200px] flex items-center justify-center">
-            <label htmlFor="imageUpload" className="upload-label cursor-pointer">
+           <label htmlFor="imageUpload" className="upload-label cursor-pointer w-full h-full flex items-center justify-center">
+           { imagem ? (
+               <span><img src={URL.createObjectURL(imagem)} alt={imagem.name} className="w-[500px] h-[200px] rounded-3xl" /></span>
+          ) : (
+
               <div className="upload-placeholder text-center">
                 <LuImageUp className="mx-auto text-gray-300 w-20 h-20" />
                 <p className="text-sm text-gray-300">Adicionar Imagem</p>
               </div>
-              <input
-                type="file"
-                id="imageUpload"
-                accept="image/*"
-                className="hidden"
-                onChange={(e) => setImagem(e.target.files[0])}
-              />
-            </label>
-            
-          </div>
+          )}
+           </label>
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => setImagem(e.target.files[0])}
+            />
+        </div>
+
 
             <div className="flex justify-center items-center">
             <button
@@ -214,7 +220,7 @@ export default function Home() {
         </Form>
          
           
-      </div>
+      </div>    
     </div>
   );
 }
