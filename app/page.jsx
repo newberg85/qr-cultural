@@ -12,7 +12,12 @@ export default function Home() {
   const [searchTriggered, setSearchTriggered] = useState(false);
 
   const handleSearch = () => {
+    if (searchTerm.trim() === "") {
+      setSearchTriggered(false);
+    } else {
     setSearchTriggered(true);
+    }
+
   }
 
   return (

@@ -10,10 +10,16 @@ const Imagens = ({ searchTerm, searchTriggered }) => {
 
   const mostrarButton = pontos.length >= perPage;
   
+
   useEffect(() => {
     const fetchPontos = async () => {
       try {
-        const q = query(collection(db, "pontos-turisticos"), limit(perPage));
+        let q;
+        if (searchTriggered && searchTerm.trim() !== "") {
+          q = query(collection(db, "pontos-turisticos"));
+        } else {
+          q = query(collection(db, "pontos-turisticos"), limit(perPage));
+        }
         const querySnapshot = await getDocs(q);
 
         const data = querySnapshot.docs.map((doc) => ({
@@ -28,7 +34,7 @@ const Imagens = ({ searchTerm, searchTriggered }) => {
     };
 
     fetchPontos();
-  }, [perPage]);
+  }, [perPage, searchTriggered, searchTerm]);
 
   const pontosFiltrados =
     searchTriggered && searchTerm.trim() !== ""
@@ -88,9 +94,9 @@ const Imagens = ({ searchTerm, searchTriggered }) => {
 
       </div>
 
-      { searchTriggered === false  && pontos.length > 0 && mostrarButton && (<div className="flex items-center justify-center pb-5">
+      { !searchTriggered && pontos.length > 0 && mostrarButton && (<div className="flex items-center justify-center pb-5">
         <button
-          onClick={() => setPerPage(perPage + 3)} // carrega mais 3
+          onClick={() => setPerPage(perPage + 3)}
           className="mt-4 px-4 py-2 bg-[#1B7E44] text-white text-sm font-semibold rounded-sm hover:bg-green-700 transition-colors inline-block"
         >
           Carregar mais
@@ -98,6 +104,6 @@ const Imagens = ({ searchTerm, searchTriggered }) => {
       </div>)}
     </div>
   );
-};
+};  
 
 export default Imagens;
