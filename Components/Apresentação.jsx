@@ -23,9 +23,9 @@ const Apresentação = () => {
               <input
                 type="text"
                 className="w-full px-1 py-3 pr-24 text-lg text-gray-700 bg-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600 transition duration-300"
-                placeholder="Digite sua pesquisa"
+                
               />
-              <button className="absolute right-0 top-1/2 transform -translate-y-1/2 px-8 py-3.5 bg-[#1B7E44] text-white font-semibold rounded-full focus:ring-2 focus:ring-[#1B7E44] transition duration-300">
+              <button className="transition duration-150 ease-in-out hover:scale-105 absolute right-0 top-1/2 transform -translate-y-1/2 px-8 py-3.5 bg-[#1B7E44] text-white font-semibold rounded-full focus:ring-2 focus:ring-[#1B7E44] transition duration-300">
                 Pesquisar
               </button>
             </div>
