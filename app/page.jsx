@@ -1,15 +1,30 @@
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
 import Apresentação from "@/Components/Apresentação";
+import Footer from "@/Components/Footer";
+import Header from "@/Components/Header";
 import Imagens from "@/Components/Imagens";
 
+
+
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTriggered, setSearchTriggered] = useState(false);
+
+  const handleSearch = () => {
+    if (searchTerm.trim() === "") {
+      setSearchTriggered(false);
+    } else {
+    setSearchTriggered(true);
+    }
+
+  }
+
   return (
     <div className="font-sans">
       <Header />
-      <Apresentação />
-      <Imagens />
+      <Apresentação searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />
+      <Imagens searchTerm={searchTerm} searchTriggered={searchTriggered}/>
       <Footer />
     </div>
   );
