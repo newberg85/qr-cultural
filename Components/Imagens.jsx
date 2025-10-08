@@ -6,7 +6,7 @@ import { collection, getDocs, limit, query } from "firebase/firestore";
 
 const Imagens = ({ searchTerm, searchTriggered }) => {
   const [pontos, setPontos] = useState([]);
-  const [perPage, setPerPage] = useState(4); 
+  const [perPage, setPerPage] = useState(3); 
 
   const mostrarButton = pontos.length >= perPage;
   
@@ -58,20 +58,20 @@ const Imagens = ({ searchTerm, searchTriggered }) => {
         </h1>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center py-10">
+      <div className="flex flex-wrap justify-center items-center py-10 w-full">
       {pontosFiltrados.length > 0 ? (
         pontosFiltrados.map((ponto) => (
           <div
             key={ponto.id}
-            className="flex justify-center px-10 py-5"
+            className="flex justify-center px-5 py-5"
           >
-            <div className="relative w-[400px] bg-white rounded-xl border border-gray-200 shadow-sm transition delay-150 duration-300 ease-in-out">
+            <div className="relative w-[400px] bg-white rounded-t-4xl border border-gray-200 shadow-sm transition delay-150 duration-300 ease-in-out">
               <img
                 src={ponto.imagem}
                 alt={ponto.nome}
                 width={400}
                 height={400}
-                className="w-[400px] h-auto rounded-t-xl"
+                className="w-[400px] h-[250px] rounded-t-4xl object-cover"
               />
               <div className="p-4 text-center">
                 <h2 className="text-lg font-semibold text-gray-800">

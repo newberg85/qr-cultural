@@ -189,7 +189,7 @@ export default function Home() {
             rows="7"
             value={descricao}
             onChange={(e) => setDescricao(e.target.value)}
-            maxLength={500}
+            maxLength={2500}
             className="border-2 text-wrap border-gray-300 w-full rounded-3xl py-3 px-2 mb-4 resize-none focus:outline-none focus:border-2 focus:border-[#10783b]"
           />
           
