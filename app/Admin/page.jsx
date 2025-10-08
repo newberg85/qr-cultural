@@ -56,10 +56,19 @@ export default function Home() {
       let imageUrl = "";
       console.log("enviando imagem");
       if (imagem) {
-        const storageRef = ref(storage, `images/${imagem.name}`);
-        await uploadBytes(storageRef, imagem);
-        imageUrl = await getDownloadURL(storageRef);
-        console.log("imagem enviada");
+        const formData = new FormData();
+        formData.append("file", imagem);
+
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+         if (data.url) {
+          imageUrl = data.url;
+          console.log("Imagem enviada com sucesso:", imageUrl);
+         }
       }
 
       if (!nome || !categoria || !cidade || !bairro || !rua || !cep || !descricao) {
