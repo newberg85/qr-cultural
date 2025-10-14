@@ -1,10 +1,32 @@
-import Link from 'next/link'
-import React from 'react'
-import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa'
+'use client'
 
+import Link from 'next/link';
+import React, { use, useEffect, useState } from 'react';
+import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/app/services/firebaseConnection';
+import { useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { doc, getDoc } from 'firebase/firestore';
 
+const Page = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+  const [ponto, setPonto] = useState(null);
 
-const page = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const ref = doc(db, "pontos-turisticos", id);
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) {
+        setPonto({ id: snapshot.id, ...snapshot.data() });
+      }
+    };
+    fetchData();
+  }, [id]);
+
+  if (!ponto) return <div>Carregando...</div>;
+
   return (
     <div className='flex flex-col md:flex-row w-full items-center'>
       <div className='flex flex-col md:w-[60%] justify-center items-start'>
@@ -18,14 +40,13 @@ const page = () => {
         </div>
 
         <div className='flex flex-col w-full justify-center md:items-start p-15'>
-            <h1 className='text-5xl font-semibold text-[#10783b] mb-3'>Praça Capistrano <br />
-            de Abreu</h1>
+            <h1 className='text-5xl font-semibold text-[#10783b] mb-3'>{ponto.nome}</h1>
             <p className='text-gray-500 mb-4 text-xl'>
-                No coração de Maranguape, a Praça Capistrano de Abreu é um dos cenários mais charmosos da cidade. Rodeada por jardins bem cuidados e arquitetura histórica, o local homenageia o célebre historiador maranguapense que dá nome à praça.
+                {ponto.descricao}
             </p>
 
             <p className='text-gray-500 mb-4 text-xl'>
-                Ideal para passeios tranquilos, fotos e momentos de descanso, a praça também serve de palco para eventos culturais e encontros ao ar livre, tornando-se parada obrigatória para quem deseja sentir o clima acolhedor da cidade.
+                {ponto.descricao2}
             </p>
 
             <div className='flex flex-row justify-between w-full mt-4 mb-20'>
@@ -46,12 +67,10 @@ const page = () => {
         </div>
       </div>
        <div className='md:w-[40%] flex justify-center items-center h-[60%]  md:h-[729px] md:m-0'>
-        <img src="/paisagem.jpg" alt="Praça Capistrano De Abreu"  className='w-full h-full object-cover'/>
+        <img src={ponto.imagem} alt="Praça Capistrano De Abreu"  className='w-full h-full object-cover'/>
        </div>
     </div>
   )
 }
 
-export default page
-
-
+export default Page;
