@@ -64,7 +64,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Informações</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white hover:text-gray-400 transition">
+                <a href="/Admin" className="text-white hover:text-gray-400 transition">
                   Eventos
                 </a>
               </li>
@@ -111,19 +111,20 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Desenvolvido por</h3>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:Secultmpe@gmail.com" className="flex items-center text-white hover:text-gray-400 transition">
+                <a href="https://www.instagram.com/_devberg?utm_source=ig_web_button_share_sheet&igsh=YWwyNWsyM296Mnhu" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
                   <BsInstagram className="mr-3" size={15} />
                   <p>Wandemberg Viana</p>
                 </a>
               </li>
               <li>
-                <a href="mailto:Secultmpe@gmail.com" className="flex items-center text-white hover:text-gray-400 transition">
+                <a href="https://www.instagram.com/lxtycia_?igsh=OGNxcDgyOTcwNmIz" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
                   <BsInstagram className="mr-3" size={15} />
                   <p>Letycia Santos</p>
                 </a>
               </li>
               <li>
-                <a href="mailto:Secultmpe@gmail.com" className="flex items-center text-white hover:text-gray-400 transition">
+            
+                <a href="https://www.instagram.com/arimateia_maciel/?utm_source=ig_web_button_share_sheet" target="_blank" className="flex items-center text-white hover:text-gray-400 transition">
                   <BsInstagram className="mr-3" size={15} />
                   <p>Arimateia Maciel</p>
                 </a>
@@ -139,5 +140,20 @@ const Footer = () => {
     </footer>
   );
 };
+
+
+NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=1nL3__KPPt78UvYRa7ylSbnsVb-ICkxl78oPCRMUdwU
+
+
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyB2HIdWKhsjXu182gWU6ApXt4yDyMgiYjw
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=qr-cultural-e8e71.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=qr-cultural-e8e71
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=qr-cultural-e8e71.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=53519925285
+NEXT_PUBLIC_FIREBASE_APP_ID=1:53519925285:web:b09bd7227ff8c4a8c13fcc
+
+CLOUDINARY_CLOUD_NAME=dtd3cpjas
+CLOUDINARY_API_KEY=654816997116226
+CLOUDINARY_API_SECRET=TqXG18wyHhDcwRNqDrClj_DZ1Zg
 
 export default Footer;
