@@ -122,7 +122,7 @@ export default function Home() {
               </div>
               <textarea rows="7" value={mensagem} onChange={(e) => setMensagem(e.target.value)} className='border-2 text-wrap border-gray-300 rounded-3xl py-3 px-2 mb-4 resize-none focus:outline-none focus:border-2 focus:border-[#10783b]'/>
               <div className='flex justify-center items-center'>
-              <button type='submit' name='Enviar' 
+                <button type='submit' name='Enviar' 
              disabled={loading}
              className='bg-[#10783b] w-[220px] text-white font-bold py-2 px-15 rounded-full hover:bg-[#0a622e]'>
               {loading ? 'Enviando...' : 'Enviar'}
