@@ -111,12 +111,12 @@ export default function Home() {
               <input type='text' value={nome} onChange={(e) => setNome(e.target.value)} placeholder='Nome' className='border-2 border-gray-300 rounded-full py-2 md:w-[50%] px-2 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
               <input type='text' value={sobrenome} onChange={(e) => setSobrenome(e.target.value)} placeholder='Sobrenome' className='border-2 border-gray-300 rounded-full py-2 md:w-[50%] px-2 mb-4 focus:outline-none focus:border-2 focus:border-[#10783b]'/>
               </div>
-              <div className="flex items-center border-2 border-gray-300 rounded-full px-4 mb-4">
+              <div className="flex items-center border-2 border-gray-300 rounded-full px-4 mb-4 focus-within:border-[#10783b] focus-within:border-2 transition-all duration-200">
                 <GoMail className="text-gray-700 mr-3" />
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Seu e-mail" className="flex-1 outline-none py-2"
                 />
               </div>
-              <div className='flex items-center border-2 border-gray-300 rounded-full px-4 mb-4'>
+              <div className='flex items-center border-2 border-gray-300 rounded-full px-4 mb-4 focus-within:border-[#10783b] focus-within:border-2 transition-all duration-200'>
                 <FaPhoneAlt className='text-gray-700 mr-3'/>
               <input type='number'  inputMode='numeric' pattern='[0-9]*' value={telefone} onChange={(e) => setTelefone(e.target.value)} placeholder='Número' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-moz-inner-spin-button]:appearance-none flex-1 outline-none py-2'/>
               </div>
