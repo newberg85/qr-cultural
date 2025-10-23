@@ -3,9 +3,7 @@
 import Link from 'next/link';
 import React, { use, useEffect, useState } from 'react';
 import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa';
-import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/app/services/firebaseConnection';
-import { useParams } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { doc, getDoc } from 'firebase/firestore';
 
