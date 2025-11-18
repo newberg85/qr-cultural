@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import React, { use, useEffect, useState } from 'react';
 import { FaInstagram, FaYoutube, FaFacebook, FaArrowLeft } from 'react-icons/fa';
-import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/app/services/firebaseConnection';
-import { useParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { doc, getDoc } from 'firebase/firestore';
 
-const Page = () => {
+function PontoContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [ponto, setPonto] = useState(null);
@@ -73,4 +72,12 @@ const Page = () => {
   )
 }
 
-export default Page;
+export default function Page() {
+  return (
+    <div className="font-sans flex flex-col min-h-screen w-full">
+      <Suspense fallback={<div>Carregando...</div>}>
+        <PontoContent />
+      </Suspense>
+    </div>
+  )
+}

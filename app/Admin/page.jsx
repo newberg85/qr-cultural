@@ -14,7 +14,31 @@ import { storage } from "@/app/services/firebaseConnection";
 import {  ToastContainer ,  toast  }  from  'react-toastify' ;  
 import 'react-toastify/dist/ReactToastify.css';
 
+import { QRCodeCanvas } from "qrcode.react";
+import { toCanvas } from "qrcode";
+
+
 export default function Home() {
+
+
+  const [qrValue, setQrValue] = React.useState('');
+  const qrRef = React.useRef();
+
+  function downloadQRCode(link) {
+    const canvas = document.getElementById('qrCodeCanvas');
+    if (!canvas) return;
+
+    const pngUrl = canvas 
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+
+    const dowloadLink = document.createElement("a");
+    dowloadLink.href = pngUrl;
+    dowloadLink.download = "qr-code.png";
+    document.body.appendChild(dowloadLink);
+    dowloadLink.click();
+    document.body.removeChild(dowloadLink);
+  }
 
   const myPromisse = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -77,7 +101,7 @@ export default function Home() {
         return;
       }
    
-      await addDoc(collection(db, "pontos-turisticos"), {
+      const docRef = await addDoc(collection(db, "pontos-turisticos"), {
         nome,
         categoria,
         cidade,
@@ -87,6 +111,13 @@ export default function Home() {
         descricao,
         imagem: imageUrl,
       });
+
+
+      const pontoUrl = `${window.location.origin}/pontos-turisticos?id=${docRef.id}`;
+      setQrValue(pontoUrl);
+      setTimeout(() => {
+        downloadQRCode();
+      }, 1000);
 
       notify();
    
@@ -224,6 +255,14 @@ export default function Home() {
             >
               {loading ? "Cadastrando..." : "Cadastrar"}
             </button>
+            <div style={{ display: 'none' }}>
+              <QRCodeCanvas
+                id="qrCodeCanvas"
+                value={qrValue || ""}
+                size={256}
+                includeMargin={true}
+              />
+            </div>
             <ToastContainer limit={1} position="top-center"/>
           </div>
         </Form>
