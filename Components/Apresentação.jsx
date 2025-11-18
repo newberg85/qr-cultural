@@ -25,17 +25,6 @@ const Apresentação = ({ searchTerm, setSearchTerm, onSearch }) => {
     fetchData();
   }, []);
 
-  const handleSearch = () => {
-    if (searchTerm.trim() === "") { 
-      setResultados(pontos);
-    } else {
-      const filtrados = pontos.filter((ponto) =>
-        ponto.nome.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setResultados(filtrados);
-    }
-  };
-
 
    return (
      <div className="flex items-center justify-center">
