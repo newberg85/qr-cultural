@@ -30,7 +30,7 @@ const Page = () => {
   return (
     <div className='flex flex-col md:flex-row w-full items-center'>
       <div className='flex flex-col md:w-[60%] justify-center items-start'>
-        <div className='flex flex-row w-[80%] text-sm mt-[40px] md:mt-0  justify-start items-center border-2 mx-auto border-gray-300 rounded-full '>
+        <div className='flex flex-row w-[80%] text-sm mt-[40px] md:mt-0  justify-start items-center border-2 mx-14 border-gray-300 rounded-full '>
             <button className='bg-[#10783b] rounded-tl-full rounded-bl-full p-4 text-white'>
             <Link href="/">
             <FaArrowLeft className='ml-3 mr-2 h-full text-2xl'/>

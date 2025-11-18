@@ -38,11 +38,11 @@ const Apresentação = ({ searchTerm, setSearchTerm, onSearch }) => {
 
 
    return (
-     <div className="flex items-center justify-center">
-       <div className="border-1 border-gray-300 pb-8 pt-6 p-4 w-[1200px] h-[500px] rounded-xl">
+     <div className="flex items-center justify-center w-full p-8">
+       <div className="border-1 border-gray-300 pb-8 pt-6 p-4 w-full h-[500px] rounded-xl">
          <div className="flex justify-center items-center">
             <h1 className="text-6xl text-[#1B7E44] font-bold flex pt-36">
-            QR Cultural
+            Bem-Vindo
           </h1>
         </div>
         <div className="flex justify-center items-center">
@@ -58,7 +58,7 @@ const Apresentação = ({ searchTerm, setSearchTerm, onSearch }) => {
             <div className="relative">
               <input
                 type="text"
-                className="w-full px-1 py-3 pr-24 text-lg text-gray-700 bg-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600 transition duration-300"
+                className="w-full px-5 py-3 pr-24 text-lg text-gray-700 bg-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600 transition duration-300"
                 placeholder="Digite sua pesquisa"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
